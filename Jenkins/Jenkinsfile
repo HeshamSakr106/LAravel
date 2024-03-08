@@ -7,7 +7,8 @@ pipeline {
     stages {
         stage('Docker Login') {
             steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+               withCredentials([usernamePassword(credentialsId: 'mycreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+               sh 'cf login some.awesome.url -u $USERNAME -p $PASSWORD'
             }
         }
         stage('Build & push Dockerfile') {
