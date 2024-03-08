@@ -1,13 +1,10 @@
 pipeline {
     agent any
-
-    environment {
-		DOCKERHUB_CREDENTIALS=credentials('Dockerhub')
-	}
+		
     stages {
         stage('Docker Login') {
             steps {
-               withCredentials([usernamePassword(credentialsId: 'mycreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+               withCredentials([usernamePassword(credentialsId: 'Dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                sh 'cf login some.awesome.url -u $USERNAME -p $PASSWORD'
             }
         }
