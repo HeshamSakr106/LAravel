@@ -14,10 +14,10 @@
     command: docker rmi heshamsakr106/laravel-app
     ignore_errors: yes
 # Make sure to change the image name with your personal dockerhub account and reposiroty 
-  - name: build docker image from dockerfile
+  - name: build docker image from Dockerfile
     command: docker build -t heshamsakr106/laravel-app .  
 # Make sure to change the image name with your personal dockerhub account and reposiroty 
-  - name: push image to dockerhub
+  - name: push image to Dockerhub
     command: docker push heshamsakr106/laravel-app 
 
 
