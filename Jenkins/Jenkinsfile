@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh """
                 cd laravel-app
-                sh playbook.yml
+                ansible playbook.yml
                 """
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh """
                 cd laravel-app
-                sh playbook-dcompose.yml 
+                Ansible playbook-dcompose.yml 
                 """
             }
         }
